@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local1="clr-namespace:ETests.View"
+             xmlns:m1="clr-namespace:ETests.Model"
+             x:Class="ETests.View.HelpPage"
+             x:Name="Currentpage"
+             Title="Frequently Asked Questions">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:CheckedToSourceConverter 
+                x:Key="CheckedToSourceConverter"
+                />
+            <m1:FAQHeader x:Key="groupmodel"></m1:FAQHeader>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Padding="1"
+                   CornerRadius="13"
+                   VerticalOptions="StartAndExpand"
+                   Margin="7,7,7,7"
+                   BackgroundColor="#397290"
+                   >
+                <ListView x:Name="listview"
+                    GroupDisplayBinding="{Binding Header}"
+                    RowHeight="75" 
+                   
+                    HasUnevenRows="True"    
+                    GroupShortNameBinding="{Binding Header}"
+                    IsGroupingEnabled="True">
+
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout  Padding="5,5,5,5"  Margin="4,0,4,0"  BackgroundColor="White">
+
+                                        <StackLayout Orientation="Vertical"
+                                                 
+                                                 VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="FillAndExpand"
+                       Spacing="0" 
+                      >
+
+                                            <Label Text="{Binding Question}" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <!--group header-->
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Spacing="0">
+                                        <StackLayout Orientation="Horizontal" 
+                                                 HeightRequest="50"
+                                                 VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="FillAndExpand"
+                         
+          BackgroundColor="#397290"
+                                                 
+                                      >
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source=
+                   {x:Reference Currentpage},
+                         Path=BindingContext.RefreshItemsCommand}"
+                         CommandParameter="{Binding .}"
+                         Tapped="TapGestureRecognizer_Tapped"/>
+
+                                            </StackLayout.GestureRecognizers>
+                                            <Label Text="{Binding TitleWithItemCount}" 
+                         TextColor="#ffffff"
+                         FontSize="12"
+                         Margin="8,0,0,0" 
+                         FontAttributes="Bold"
+                         VerticalOptions="CenterAndExpand"
+                         />
+                                            <Image Source="baseline_keyboard_arrow_down_white_18dp" HeightRequest="24" WidthRequest="24" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+
+
+
+                                        </StackLayout>
+
+                                        <BoxView Color="#EEEEEE" 
+                        HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand" 
+                     HeightRequest="2"
+                    />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.QuizPage"
+            BackgroundColor="White"
+             xmlns:viewmodel="clr-namespace:ETests.Model"
+             xmlns:view="clr-namespace:ETests.View"
+             xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+             xmlns:customcontrols="clr-namespace:ETests.CustomControls"
+             
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <view:CheckedToSourceConverter 
+                x:Key="CheckedToSourceConverter"
+                />
+            <view:TextColorToSourceConverter 
+                x:Key="TextColorToSourceConverter"
+                />
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodel:Questions/>
+
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+            <Grid Padding="0,10,0,10">
+            <StackLayout Orientation="Vertical" Padding="5">
+                <ScrollView>
+                    <StackLayout x:Name="scslayout">
+                        <StackLayout Orientation="Horizontal" Margin="15,0,0,0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="quizStack">
+                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                <Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="40" />
+                                </Frame.HeightRequest>
+                                <Frame.WidthRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="40" />
+                                </Frame.WidthRequest>
+                                <Image  Source="baseline_keyboard_arrow_left_white_18dp.png"   HorizontalOptions="Center"  VerticalOptions="Center" >
+
+                                </Image>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+                            <StackLayout Orientation="Vertical" Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
+
+                                <!--<Label Text="Question" x:Name="QuestionCount" FontSize="Large"  TextColor="Black"/>-->
+                                <RelativeLayout
+							HeightRequest="40"
+                            WidthRequest="120"
+                            HorizontalOptions="FillAndExpand"
+							VerticalOptions="CenterAndExpand">
+                                    <ListView Rotation="270" x:Name="LIST" HasUnevenRows="True"  RowHeight="40" HorizontalOptions="FillAndExpand" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-20}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=20}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=40}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <ContentView  Rotation="90" BackgroundColor="Transparent" VerticalOptions="StartAndExpand">
+                                                        <StackLayout 
+                                                    HeightRequest="40"
+												 WidthRequest="40"
+												 >
+
+
+                                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="{Binding FrameBackGroundColor,
+                         Converter={StaticResource TextColorToSourceConverter}}"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                                                <Frame.HeightRequest>
+                                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="30" />
+                                                                </Frame.HeightRequest>
+                                                                <Frame.WidthRequest>
+                                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="30" />
+                                                                </Frame.WidthRequest>
+                                                                <Label x:Name="labcount" Text="{Binding ID}" FontSize="15" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" >
+
+                                                                </Label>
+                                                                <Frame.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"/>
+                                                                </Frame.GestureRecognizers>
+
+                                                            </Frame>
+
+                                                        </StackLayout>
+                                                    </ContentView>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </RelativeLayout>
+                            </StackLayout>
+                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                <Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="40" />
+                                </Frame.HeightRequest>
+                                <Frame.WidthRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="40" />
+                                </Frame.WidthRequest>
+                                <Image  Source="baseline_keyboard_arrow_right_white_18dp.png"   HorizontalOptions="Center"  VerticalOptions="Center" >
+
+                                </Image>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedLef"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <StackLayout  HorizontalOptions="EndAndExpand" VerticalOptions="Center" >
+
+                                <Frame
+            OutlineColor="White"
+            Padding="2"
+               Margin="8"
+               CornerRadius="10"
+               HeightRequest="55"
+               WidthRequest="120"
+               HasShadow="True"
+                BackgroundColor="#eeeeee"
+               HorizontalOptions="EndAndExpand"
+              >
+                                    <Label Text="00:30" FontSize="22" FontFamily="Century Gothic.ttf#Century Gothic"  x:Name="CountDown" TextColor="Black"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                </Frame>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout x:Name="slQuestion" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+                            <StackLayout x:Name="st"  IsVisible="true" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="lblquestionNo" Text="QuestionNo 00" FontFamily="Century Gothic.ttf#Century Gothic" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="Small" Margin="13,2,0,0"/>
+                                    <Label x:Name="lblsectionNo" Text="Section 00" FontFamily="Century Gothic.ttf#Century Gothic" FontAttributes="Bold" HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="Small" Margin="0,2,13,0"/>
+
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <!--<Label 
+                       Text="Number"
+                         FontSize="Medium"
+                        x:Name="lblquestionNo"
+                        HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"      
+                            TextColor="Black"
+                           />-->
+                                    <Label x:Name="lblQuestion"
+                       FontAttributes="Bold"
+                      Margin="10,2,2,2"
+                       FontSize="Small"
+                       TextColor="Black" 
+                        Text="question"
+                                   FontFamily="Century Gothic.ttf#Century Gothic"
+                       HorizontalOptions="FillAndExpand"
+                        />
+                                    <Image HeightRequest="180" WidthRequest="150" HorizontalOptions="CenterAndExpand" x:Name="img"/>
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="FillAndExpand">
+                                    <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#397290"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="Fill"
+                   HorizontalOptions="FillAndExpand">
+                                        <!--<Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="40" />
+                                </Frame.HeightRequest>-->
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="4"
+                                           Margin="5,0,0,0"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   HeightRequest="25"
+                   WidthRequest="25"
+                   CornerRadius="20"
+                  
+                  HorizontalOptions="StartAndExpand"
+                  VerticalOptions="CenterAndExpand"
+                       
+                   >
+                                                <!--<Frame.HeightRequest>
+                                            <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                        </Frame.HeightRequest>
+                                        <Frame.WidthRequest>
+                                            <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                        </Frame.WidthRequest>-->
+                                                <Label  Text="A" FontSize="15"  TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" >
+
+                                                </Label>
+
+                                            </Frame>
+
+                                            <Label x:Name="Option1"
+                            TextColor="White"
+                            WidthRequest="280"
+                             VerticalOptions="Center"              
+                          
+                           />
+                                            <!--<Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
+                                            x:Name="btnAnswerOne" Toggled="Switch_Toggled" IsToggled="{Binding IsCheckedA}"/>-->
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   BorderColor="White"
+                   CornerRadius="20"
+                  
+                       x:Name="OptionA"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="EndAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.WidthRequest>
+                                                <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="White"
+                       BorderColor="White"
+                       
+                   x:Name="centerFram1"
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                                    <Frame.HeightRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.HeightRequest>
+                                                    <Frame.WidthRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.WidthRequest>
+                                                </Frame>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                                                </Frame.GestureRecognizers>
+
+                                            </Frame>
+
+
+
+
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+                                <StackLayout>
+                                    <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#397290"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="FillAndExpand">
+                                        <!--<Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="35" />
+                                </Frame.HeightRequest>-->
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   HorizontalOptions="StartAndExpand"
+                  VerticalOptions="CenterAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.WidthRequest>
+                                                <Label  Text="B" FontSize="15" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" >
+
+                                                </Label>
+
+                                            </Frame>
+                                            <Label x:Name="Option2"
+                    TextColor="White"
+                                           VerticalOptions="Center"
+                                           WidthRequest="280"
+                           />
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   BorderColor="White"
+                   CornerRadius="20"
+                  
+                       x:Name="OptionB"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="EndAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.WidthRequest>
+                                                <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="White"
+                       BorderColor="White"
+                       
+                   x:Name="centerFram2"
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                                    <Frame.HeightRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.HeightRequest>
+                                                    <Frame.WidthRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.WidthRequest>
+                                                </Frame>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                                </Frame.GestureRecognizers>
+
+                                            </Frame>
+                                            <!--<Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
+                                            x:Name="btnAnswerTwo" Toggled="BtnAnswerTwo_Toggled" IsToggled="{Binding IsCheckedB}"/>-->
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#397290"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="FillAndExpand">
+                                        <!--<Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="35" />
+                                </Frame.HeightRequest>-->
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                  
+                   BackgroundColor="#039be5"
+                   CornerRadius="20"
+                  
+                       
+                   HorizontalOptions="StartAndExpand"
+                  VerticalOptions="CenterAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.WidthRequest>
+                                                <Label  Text="C" FontSize="15" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" >
+
+                                                </Label>
+
+                                            </Frame>
+                                            <Label x:Name="Option3"
+                                                TextColor="White"
+                                           WidthRequest="280"
+                                           VerticalOptions="Center"
+                                                       />
+                                            <!--<Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                            x:Name="btnAnswerThree" Toggled="BtnAnswerThree_Toggled" IsToggled="{Binding IsCheckedC}"/>-->
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   BorderColor="White"
+                   CornerRadius="20"
+                  x:Name="OptionC"
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="EndAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.WidthRequest>
+                                                <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="White"
+                       BorderColor="White"
+                       
+                   x:Name="centerFram3"
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                                    <Frame.HeightRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.HeightRequest>
+                                                    <Frame.WidthRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.WidthRequest>
+                                                </Frame>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                                </Frame.GestureRecognizers>
+
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout >
+                                    <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#397290"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="FillAndExpand">
+                                        <!--<Frame.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="35" />
+                                </Frame.HeightRequest>-->
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   
+                   CornerRadius="20"
+                  
+                       
+                   HorizontalOptions="StartAndExpand"
+                  VerticalOptions="CenterAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="25" />
+                                                </Frame.WidthRequest>
+                                                <Label  Text="D" FontSize="15" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" >
+
+                                                </Label>
+
+                                            </Frame>
+                                            <Label x:Name="Option4"
+                                              TextColor="White"
+                                           WidthRequest="280"
+                                           VerticalOptions="Center"
+                                                       />
+                                            <!--<Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                            x:Name="btnAnswerFour" Toggled="BtnAnswerFour_Toggled" IsToggled="{Binding IsCheckedD}"/>-->
+
+                                            <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#039be5"
+                   BorderColor="White"
+                   CornerRadius="20"
+                  
+                       x:Name="OptionD"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="EndAndExpand">
+                                                <Frame.HeightRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.HeightRequest>
+                                                <Frame.WidthRequest>
+                                                    <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="15" />
+                                                </Frame.WidthRequest>
+                                                <Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="White"
+                       BorderColor="White"
+                       
+                   x:Name="centerFram4"
+                   CornerRadius="20"
+                  
+                       
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+                                                    <Frame.HeightRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.HeightRequest>
+                                                    <Frame.WidthRequest>
+                                                        <OnIdiom x:TypeArguments="x:Double" Tablet="40" Phone="8" />
+                                                    </Frame.WidthRequest>
+                                                </Frame>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                                                </Frame.GestureRecognizers>
+
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                                <!--<Button x:Name="btnAnswerOne"
+                            BackgroundColor="{Binding SeclectedButtonA,
+                         Converter={StaticResource CheckedToSourceConverter},Mode=TwoWay}"
+                       Text="{Binding A}"
+				    HorizontalOptions="FillAndExpand" Clicked="BtnAnswerOne_Clicked"/>
+                    <Button x:Name="btnAnswerTwo" 
+                           BackgroundColor="{Binding SeclectedButtonB,
+                         Converter={StaticResource CheckedToSourceConverter},Mode=TwoWay}"
+                       Text="{Binding A}"
+				     HorizontalOptions="FillAndExpand" Clicked="BtnAnswerTwo_Clicked"/>
+                    <Button x:Name="btnAnswerThree" 
+                            BackgroundColor="{Binding SeclectedButtonC,
+                         Converter={StaticResource CheckedToSourceConverter},Mode=TwoWay}"
+                       Text="{Binding A}"
+				     HorizontalOptions="FillAndExpand" Clicked="BtnAnswerThree_Clicked"/>
+                    <Button x:Name="btnAnswerFour" 
+                           
+                           BackgroundColor="{Binding SeclectedButtonD,
+                         Converter={StaticResource CheckedToSourceConverter},Mode=TwoWay}"
+                       Text="{Binding A}"
+				     HorizontalOptions="FillAndExpand" Clicked="BtnAnswerFour_Clicked"/>-->
+
+                                <!--<Frame
+            OutlineColor="White"
+            Padding="2,10,2,5"
+               Margin="5"
+               
+               VerticalOptions="StartAndExpand"                 
+               HasShadow="True"
+                BackgroundColor="White"
+               HorizontalOptions="FillAndExpand"
+              >
+
+
+                        <StackLayout>
+                           
+                           
+                            <Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label 
+                       Text="B :"
+                         TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                <Label x:Name="Option2"
+                    TextColor="Black"
+                           />
+                                    <Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
+                                            x:Name="btnAnswerTwo" Toggled="BtnAnswerTwo_Toggled" IsToggled="{Binding IsCheckedB}"/>
+                                </StackLayout>
+                                <Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"/>
+                                <StackLayout Orientation="Horizontal">
+                                <Label 
+                       Text="C :"
+                  TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                <Label x:Name="Option3"
+                                                TextColor="Black"
+                                                       />
+                                    <Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                            x:Name="btnAnswerThree" Toggled="BtnAnswerThree_Toggled" IsToggled="{Binding IsCheckedC}"/>
+                                </StackLayout>
+                                <Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"/>
+
+                                <StackLayout Orientation="Horizontal">
+                                <Label 
+                       Text="D :"
+                        TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                <Label x:Name="Option4"
+                                              TextColor="Black"
+                                                       />
+                                    <Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                            x:Name="btnAnswerFour" Toggled="BtnAnswerFour_Toggled" IsToggled="{Binding IsCheckedD}"/>
+                                </StackLayout>
+                                <Label HeightRequest="2"  HorizontalOptions="FillAndExpand"/>
+
+                            </StackLayout>
+
+
+
+
+
+                    </Frame>-->
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                                <customcontrols:SmallButton x:Name="btnPrevious"
+                        HorizontalOptions="StartAndExpand"
+                       
+                       FontSize="Small"
+                            HeightRequest="35"
+                            BackgroundColor="#01579B"
+                        Clicked="BtnPrevious_Clicked"
+                            Text="End Test"
+                     TextColor="White"
+                        />
+
+                                <customcontrols:SmallButton x:Name="btnConfirm"
+                        HorizontalOptions="EndAndExpand"
+                       
+                       FontSize="Small"
+                                HeightRequest="35"
+                        Clicked="BtnConfirm_Clicked"
+                            Text="Go To Question"
+                      BackgroundColor="#01579B"
+                        TextColor="White"
+                        />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+
+                <StackLayout Orientation="Vertical" VerticalOptions="Fill" x:Name="frameStack" IsVisible="False">
+
+
+                <StackLayout Orientation="Vertical">
+
+                    <Frame BackgroundColor="#fee6ff"
+                   Padding="10"
+                    Margin="5"
+                           IsVisible="True"
+                   >
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                    <Label
+            
+          FontSize="14"
+            VerticalTextAlignment="Center"
+            x:Name="PreviousScore"
+            TextColor="Black"
+            
+            />
+                                <Label
+            
+           FontSize="14"
+            VerticalTextAlignment="Center"
+            x:Name="TotaLScore"
+            TextColor="Black"
+            
+            />
+
+                                <Label
+            
+           FontSize="14"
+            VerticalTextAlignment="Center"
+            x:Name="Performance"
+            TextColor="Black"
+            
+            />
+                            </StackLayout>
+                        </Frame>
+
+                    <!--1st frame-->
+                            <StackLayout>
+                    <ListView
+                        HasUnevenRows="True"
+                        x:Name="MyListView"
+                   BackgroundColor="AliceBlue"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                    
+                   >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+
+                                    <Frame
+            OutlineColor="White"
+            Padding="1"
+               Margin="5"
+               HeightRequest="230"                 
+               HasShadow="True"
+                BackgroundColor="White"
+               HorizontalOptions="FillAndExpand"
+              >
+
+
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal" BackgroundColor="#01579B">
+                                                <Label 
+                       Text="Q :"
+                            HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                                              VerticalTextAlignment="Center"      
+                            TextColor="White"
+                           />
+                                                <Label x:Name="lblhead"
+                           Text="{Binding Question}"
+                      TextColor="White"
+                      
+                      
+                       VerticalTextAlignment="Center"
+                       HeightRequest="35"
+                      
+                       />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                     <Label 
+                       Text="A :"
+                         TextColor="Black"
+                            HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                          
+                           />
+
+                      <Label x:Name="OptionA"
+                             TextColor="{Binding TextColorA,
+                         Converter={StaticResource TextColorToSourceConverter}}"
+                       Text="{Binding A}"
+                          
+                           />
+               </StackLayout>
+               <StackLayout Orientation="Horizontal">
+                     <Label 
+                       Text="B :"
+                         TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                    <Label x:Name="OptionB"
+                    Text="{Binding B}"
+                           TextColor="{Binding TextColorB,
+                         Converter={StaticResource TextColorToSourceConverter}}" 
+                           />
+               </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label 
+                       Text="C :"
+                  TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                                <Label x:Name="OptionC"
+                                                TextColor="{Binding TextColorC,
+                         Converter={StaticResource TextColorToSourceConverter}}"       
+                       Text="{Binding C}"
+                                                       />
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label 
+                       Text="D :"
+                        TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                                <Label x:Name="OptionD"
+                                               TextColor="{Binding TextColorD,
+                         Converter={StaticResource TextColorToSourceConverter}}"
+                       Text="{Binding D}"
+                                                       />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label
+                       Text="Answer :"
+                      HorizontalOptions="Start"
+                           TextColor="Black"                         
+                           FontAttributes="Bold"
+                           />
+                                                <Label 
+                       Text="{Binding Answer}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+
+
+
+                                    </Frame>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                            </StackLayout>
+                            <!--2nd frame-->
+
+
+
+                </StackLayout>
+
+            </StackLayout>
+            </StackLayout>
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

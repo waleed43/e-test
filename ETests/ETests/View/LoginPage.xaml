@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.LoginPage"
+              BackgroundColor="#397290"
+             xmlns:viewmodel="clr-namespace:ETests.ViewModel"
+              xmlns:locals="clr-namespace:ETests.CustomControls">
+
+    <ContentPage.BindingContext>
+        <viewmodel:LoginViewModel/>
+
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+        <StackLayout Orientation="Vertical">
+            <StackLayout>
+                <Label FontSize="30" FontFamily="Century Gothic.ttf#Century Gothic" TextColor="White" Text="Login" HorizontalOptions="CenterAndExpand" Margin="0,40,0,10"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
+
+                <Image Source="label.PNG" WidthRequest="70" />
+                    <Image Source="label.PNG" WidthRequest="70" />
+                <Image Source="label2.PNG" WidthRequest="70" />
+
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="7" Spacing="10">
+                    
+
+
+
+
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                    <!--<locals:CustomEntery x:Name="Device_Reg" Text="{Binding Device_Registration}" 
+                           Placeholder="Device Registration"   
+                           PlaceholderColor="Gray" 
+                           FontSize="Small"
+                           HeightRequest="30"   
+                           BackgroundColor="White"
+                           TextColor="Black"/>-->
+                        <Label Text="1. Verify Your Email" TextColor="White" FontSize="Small" Margin="20,0,0,0"/>
+                        <Label Text="2. Pay Your Test Catagory Fee" TextColor="White" FontSize="Small" Margin="20,0,0,0"/>
+                        <Label Text="3. After Payment You will Receive Your LoginKey" TextColor="White" FontSize="Small" Margin="20,0,0,5"/>
+                        <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
+                        <!--<Label Text="Name :" HorizontalOptions="Start" WidthRequest="80" TextColor="White" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand"></Label>-->
+                        <locals:CustomEntery x:Name="UName" 
+                            
+                          
+                           
+                           Text="{Binding User_Email}"
+                           
+                           FontSize="Small"
+                           HeightRequest="40"   
+                            Placeholder="User Email "
+                          FontFamily="Century Gothic.ttf#Century Gothic"
+                            HorizontalOptions="FillAndExpand"
+                          TextColor="Black"
+                            Keyboard="Email" 
+                           >
+
+                            <locals:CustomEntery.Behaviors>
+                                <locals:MaskedBehavior/>
+                            </locals:CustomEntery.Behaviors>
+
+
+                        </locals:CustomEntery>
+                    </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal" Margin="0,8,0,0">
+                        <!--<Label Text="Email :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+                        <locals:CustomEntery x:Name="UEmail" 
+                           
+                           Placeholder="Login Key"
+                           Text="{Binding LoginKey}"
+                           FontFamily="Century Gothic.ttf#Century Gothic"
+                           PlaceholderColor="Gray" 
+                           FontSize="Small"
+                           HeightRequest="40"   
+                            
+                           BorderErrorColor="Red"
+                           HorizontalOptions="FillAndExpand"
+                           TextColor="Black"
+                                             >
+
+                        </locals:CustomEntery>
+                    </StackLayout>
+                        <Label x:Name="payment" IsVisible="False" Text="1. Verify Your Email" TextColor="White" FontSize="Small" Margin="0,5,0,0"/>
+                </StackLayout>
+                
+                <!--// IsEnabled="{Binding IsButtonEnabled}"-->
+            </StackLayout>
+            <Button  Command="{Binding LSubmitCommand}" 
+                    Text="Next" TextColor="White" 
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Margin="30,0,30,20"
+                    VerticalOptions="EndAndExpand"
+                    FontFamily="Century Gothic.ttf#Century Gothic"
+                    HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#01579B" 
+                  
+                    />
+        </StackLayout>
+        <ActivityIndicator x:Name="indi" IsRunning="{Binding IsBusy,Mode=TwoWay}"
+                               IsVisible="{Binding IsBusy}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
+                                   Color="#3700b3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

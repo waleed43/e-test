@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.NavigationDrawarPage"
+                  NavigationPage.HasNavigationBar="False"
+                   x:Name="Currentpage"
+                  >
+    <MasterDetailPage.Master >
+        <ContentPage Title="Menu"
+                 BackgroundColor="#397290">
+
+            <StackLayout Orientation="Vertical" >
+
+                <!-- 
+             This StackLayout you can use for other
+             data that you want to have in your menu drawer
+        -->
+                <StackLayout.Children >
+                    <!--<Label Text="{Binding Header}" HorizontalOptions="CenterAndExpand" />
+
+                    <Image Source="{Binding Image}" Aspect="Fill" />
+
+                    <Label Text="{Binding Footer}" />-->
+
+                    <StackLayout  BackgroundColor="#F7F7F7" Orientation="Vertical" HeightRequest="180" >
+
+
+                        <!--<Label Text="EPTCON Ltd." Margin="50,20,0,0" 
+                               HorizontalTextAlignment="Center" TextColor="White" FontSize="Medium" />-->
+
+                        <!--<controls:CircleImage Source="faizii.jpg" HeightRequest="96" HorizontalOptions="Start" Margin="15,0,0,0" />-->
+
+                        <Image Source="splash_screen.png"  HorizontalOptions="Fill" VerticalOptions="FillAndExpand" />
+
+                        <Label x:Name="UserName" Text="Demo" HeightRequest="40" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" 
+                               Margin="3"
+                                TextColor="#397290" FontSize="Small" />
+
+                        <!--<Label  Text="Demo" Margin="15,0,0,0" 
+                                TextColor="White" FontSize="Small" />-->
+
+
+
+
+
+                    </StackLayout>
+
+
+                    <ListView x:Name="navigationDrawerList"
+                  RowHeight="45"
+                  SeparatorVisibility="None"
+                  BackgroundColor="#397290"
+                  
+                  
+                              >
+
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <ViewCell >
+
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout  VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal"
+                             Padding="10,10,0,10"
+                             Spacing="10">
+
+                                        <Image Source="{Binding Icon}"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         VerticalOptions="Start" />
+
+                                        <Label Text="{Binding Title}"
+                         FontSize="Small"
+                                            
+                         VerticalOptions="Center"
+                         TextColor="White"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command="{Binding Source=
+                   {x:Reference Currentpage},
+                         Path=BindingContext.RefreshItemsCommand}"
+                         CommandParameter="{Binding .}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout.Children>
+            </StackLayout>
+
+
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

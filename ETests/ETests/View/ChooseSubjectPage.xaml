@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.ChooseSubjectPage"
+             BackgroundColor="White"
+             xmlns:locals="clr-namespace:ETests.CustomControls"
+             Title="Choose Subjects"
+             >
+    <ScrollView>
+        <StackLayout >
+
+            <Grid  ColumnSpacing="4">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <BoxView  Grid.Row="1" Grid.Column="1" BackgroundColor="#eeeeee" />
+
+                <ContentView Grid.Row="1" Grid.Column="1"  >
+                    <StackLayout  Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="Current Affairs" FontAttributes="Bold" TextColor="White"
+                          Margin="3,0,0,0" 
+                          
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" Margin="0,0,0,0" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+
+
+
+                <!-- this is second box -->
+                <BoxView Grid.Row="1" Grid.Column="3"
+                     BackgroundColor="#eeeeee" 
+                     />
+
+                <Button
+           Grid.Row="1" 
+                 Grid.Column="1"    
+            Margin="2"
+           Clicked="Button_Clicked"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+                <ContentView Grid.Row="1" Grid.Column="3" >
+                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="General Knowledge" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+
+                <!-- this is third box -->
+                <BoxView Grid.Row="2" Grid.Column="1" BackgroundColor="#eeeeee" />
+
+                <Button
+           Grid.Row="1" 
+                 Grid.Column="3"    
+            Margin="2"
+           Clicked="Button_Clicked_1"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+                <ContentView Grid.Row="2" Grid.Column="1" >
+                    <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="Mathematics" TextColor="White"
+                          Margin="3,0,0,0" 
+                           FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" Margin="0,15,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand"  HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+
+                <!-- this is fourth box -->
+                <BoxView Grid.Row="2" Grid.Column="3" BackgroundColor="#eeeeee" />
+
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="1"    
+            Margin="2"
+           Clicked="Button_Clicked_2"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+
+                <ContentView Grid.Row="2" Grid.Column="3" >
+
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="3" Grid.Column="1" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            Clicked="Button_Clicked_3"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+                <ContentView Grid.Row="3" Grid.Column="1" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="3" Grid.Column="3" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            
+            BackgroundColor="Transparent"
+            Clicked="Button_Clicked_4"
+            
+            />
+
+                <ContentView Grid.Row="3" Grid.Column="3" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="3" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="4" Grid.Column="1" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            Clicked="Button_Clicked_5"
+            BackgroundColor="Transparent"
+            
+            
+            />
+                <ContentView Grid.Row="4" Grid.Column="1" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="4" Grid.Column="3" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            
+            BackgroundColor="Transparent"
+            Clicked="Button_Clicked_6"
+            
+            />
+                <ContentView Grid.Row="4" Grid.Column="3" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand"  HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="5" Grid.Column="1" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            Clicked="Button_Clicked_7"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+                <ContentView Grid.Row="5" Grid.Column="1" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <BoxView Grid.Row="5" Grid.Column="3" BackgroundColor="#eeeeee" />
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            Clicked="Button_Clicked_8"
+            BackgroundColor="Transparent"
+            
+            
+            />
+                <ContentView Grid.Row="5" Grid.Column="3" >
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical" BackgroundColor="#e0e0e0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#01579B" HeightRequest="40" HorizontalOptions="Fill">
+                            <Image 
+                           Source="book.png" VerticalOptions="Start"
+                           
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           HorizontalOptions="Start"
+                           />
+
+                            <Label
+                           HorizontalOptions="StartAndExpand"
+                           Text="ComputerScience" TextColor="White"
+                          Margin="3,0,0,0" 
+                          FontAttributes="Bold"
+                           />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Margin="0,15,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Pay Rs: 500" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="Small" FontAttributes="Bold"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="100">
+                                <Label Text="Choose Payment Method:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0,12,0,0" FontSize="Small" FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical" Spacing="2">
+                                <locals:CustomButton HeightRequest="20" WidthRequest="60" Text="JazzCash" HorizontalOptions="Start"
+                                                 VerticalOptions="Center" BackgroundColor="#01579B" TextColor="White"
+                                                 FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60" Text="Easypasa" BackgroundColor="#01579B"
+                                                  VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"
+                                                  FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+                                <locals:CustomButton  HeightRequest="20" WidthRequest="60"  Text="BnkAcount"
+                                                  BackgroundColor="#01579B" VerticalOptions="Center" TextColor="White"
+                                                  HorizontalOptions="End" FontAttributes="Bold" FontSize="Micro"></locals:CustomButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+
+                <Button
+           Grid.Row="2" 
+                 Grid.Column="3"    
+            Margin="2"
+            Clicked="Button_Clicked_9"
+            BackgroundColor="Transparent"
+            
+            
+            />
+
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

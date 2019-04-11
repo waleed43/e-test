@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.SolvedQuestion"
+             xmlns:view="clr-namespace:ETests.View"
+            
+             Title="Solved Questions">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <view:CheckedToSourceConverter 
+                x:Key="CheckedToSourceConverter"
+                />
+            <view:TextColorToSourceConverter 
+                x:Key="TextColorToSourceConverter"
+                />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <ListView
+                        HasUnevenRows="True"
+                        x:Name="PreprationList"
+                   BackgroundColor="AliceBlue"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                    
+                   >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+
+                            <Frame
+            OutlineColor="White"
+            Padding="1"
+               Margin="5"
+               HeightRequest="230"                 
+               HasShadow="True"
+                BackgroundColor="White"
+               HorizontalOptions="FillAndExpand"
+              >
+
+
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#01579B">
+                                        <Label 
+                       Text="Q :"
+                            HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                                              VerticalTextAlignment="Center"       HeightRequest="35"
+                            TextColor="White"
+                           />
+                                        <Label x:Name="lblhead"
+                           Text="{Binding Question}"
+                      TextColor="White"
+                      
+                      
+                       VerticalTextAlignment="Center"
+                       HeightRequest="35"
+                      
+                       />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                       Text="A :"
+                         TextColor="Black"
+                            HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                          
+                           />
+
+                                        <Label x:Name="OptionA"
+                             TextColor="{Binding TextColorA,
+                         Converter={StaticResource TextColorToSourceConverter}}"
+                       Text="{Binding A}"
+                          
+                           />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                       Text="B :"
+                         TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                        <Label x:Name="OptionB"
+                    Text="{Binding B}"
+                           TextColor="{Binding TextColorB,
+                         Converter={StaticResource TextColorToSourceConverter}}" 
+                           />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                       Text="C :"
+                  TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                        <Label x:Name="OptionC"
+                                                TextColor="{Binding TextColorC,
+                         Converter={StaticResource TextColorToSourceConverter}}"       
+                       Text="{Binding C}"
+                                                       />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                       Text="D :"
+                        TextColor="Black"
+                      HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           />
+                                        <Label x:Name="OptionD"
+                                               TextColor="{Binding TextColorD,
+                         Converter={StaticResource TextColorToSourceConverter}}"
+                       Text="{Binding D}"
+                                                       />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                       Text="Answer :"
+                      HorizontalOptions="Start"
+                           TextColor="Black"                         
+                           FontAttributes="Bold"
+                           />
+                                        <Label 
+                       Text="{Binding Answer}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+
+
+
+
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

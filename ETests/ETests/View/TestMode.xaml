@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.TestMode"
+             Title="Test Mode"
+             x:Name="MyPage"
+             BackgroundColor="#397290"
+             xmlns:viewmodel="clr-namespace:ETests.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:control="clr-namespace:ETests.CustomControls">
+    <ContentPage.BindingContext>
+        <viewmodel:SelectCatagoryViewModel/>
+
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+        <StackLayout >
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Label FontSize="40"  FontFamily="Century Gothic.ttf#Century Gothic" FontAttributes="Bold" TextColor="White" Text="Registration" HorizontalOptions="CenterAndExpand" Margin="0,40,0,10"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
+                <Image Source="label.PNG" WidthRequest="70" />
+                <Image Source="label.PNG" WidthRequest="70" />
+                <Image Source="label2.PNG" WidthRequest="70" />
+            </StackLayout>
+            <StackLayout  Orientation="Vertical"
+                      Padding="10" VerticalOptions="FillAndExpand">
+                <Label Text="Select a Test Catagory"  FontFamily="Century Gothic.ttf#Century Gothic" TextColor="White" Margin="10,8,0,0">
+                    <Label.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Tablet="25" Phone="18" />
+                    </Label.FontSize>
+                </Label>
+                <Grid Margin="10,0,10,0">
+                    <control:SmallButton 
+              x:Name="customButton" 
+                         FontFamily="Century Gothic.ttf#Century Gothic"
+                                Text="--Select Test--"
+                                Clicked="CustomButton_Clicked"
+                    BackgroundColor="White"
+                      HorizontalOptions="FillAndExpand" TextColor="Black" >
+                        <control:SmallButton.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Tablet="25" Phone="18" />
+                        </control:SmallButton.FontSize>
+                        <control:SmallButton.HeightRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="60"/>
+                        </control:SmallButton.HeightRequest>
+                    </control:SmallButton>
+                    <Image
+                  Source="baseline_expand_more_black_18dp.png"
+                   Margin="0,0,15,0"
+                   HorizontalOptions="End"
+                        x:Name="imgButton"
+                   >
+                        <Image.HeightRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="45"></OnIdiom>
+                        </Image.HeightRequest>
+                        <Image.WidthRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="45"></OnIdiom>
+                        </Image.WidthRequest>
+
+                    </Image>
+                </Grid>
+
+                <!--<Frame Padding="4"
+                   HasShadow="False"
+                   BackgroundColor="#01579B"
+                   
+                   CornerRadius="5"
+                  Margin="15,0,15,10"
+                       
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="FillAndExpand">
+                    <Frame.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Tablet="80" Phone="40" />
+                    </Frame.HeightRequest>
+
+                    <Label x:Name="prepration" Text="Proceed"  FontFamily="Century Gothic.ttf#Century Gothic" TextColor="White" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" VerticalOptions="Center" >
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Tablet="35" Phone="15" />
+                        </Label.FontSize>
+                    </Label>
+                    <Frame.GestureRecognizers>
+                        --><!--Tapped="TapGestureRecognizer_Tapped_1"--><!--
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                    </Frame.GestureRecognizers>
+                </Frame>-->
+                <control:SmallButton 
+             
+                         FontFamily="Century Gothic.ttf#Century Gothic"
+                                Text="Proceed"
+                                Command="{Binding FSubmitCommand}"
+                    BackgroundColor="#01579B"
+                      HorizontalOptions="FillAndExpand" TextColor="White" VerticalOptions="EndAndExpand" >
+                    <control:SmallButton.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Tablet="25" Phone="18" />
+                    </control:SmallButton.FontSize>
+                    <control:SmallButton.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="60"/>
+                    </control:SmallButton.HeightRequest>
+                </control:SmallButton>
+            </StackLayout>
+        </StackLayout>
+            <ActivityIndicator x:Name="indi" IsRunning="{Binding IsBusy,Mode=TwoWay}"
+                               IsVisible="{Binding IsBusy}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
+                                   Color="#3700b3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

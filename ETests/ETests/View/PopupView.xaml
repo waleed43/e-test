@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.PopupView" x:Name="Currentpage"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls">
+    <StackLayout HeightRequest="190"
+                 WidthRequest="300"
+                 Padding="5"
+                 BackgroundColor="White"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+        <ListView
+                        HasUnevenRows="True"
+                        x:Name="PopupListView"
+                     SeparatorColor="Black"
+                    SeparatorVisibility="Default"
+                   BackgroundColor="AliceBlue"
+                   HorizontalOptions="FillAndExpand"
+                   
+                    
+                   >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+
+                        <ViewCell.Height>
+                            <OnIdiom x:TypeArguments="x:Double" Tablet="60" Phone="60" />
+                        </ViewCell.Height>
+                        <ViewCell.View>
+
+                        <StackLayout Spacing="0" >
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <Label Text="{Binding Name}"  FontFamily="Century Gothic.ttf#Century Gothic" TextColor="Black"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="4,0,0,0">
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="25" Phone="18" />
+                                </Label.FontSize>
+
+
+                            </Label>
+                            <ia:Checkbox
+                        FillColor="Blue"
+                        OutlineColor="Black"
+                        CheckColor="White"
+                        
+                        Shape="Rectangle"
+                        IsEnabled="False"
+                        x:Name="CheckMe"
+                                
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                        IsChecked="{Binding Check,Mode=OneWay}"
+                        
+                        >
+                                <ia:Checkbox.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="30" Phone="20" />
+                                </ia:Checkbox.HeightRequest>
+                                <ia:Checkbox.WidthRequest>
+                                    <OnIdiom x:TypeArguments="x:Double" Tablet="30" Phone="20" />
+                                </ia:Checkbox.WidthRequest>
+                            </ia:Checkbox>
+                            
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                     Command="{Binding Source=
+                   {x:Reference Currentpage},
+                         Path=BindingContext.RefreshItemsCommand}"
+                         CommandParameter="{Binding .}"
+                                    Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                            
+                        </StackLayout>
+                               
+
+
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    </pages:PopupPage>

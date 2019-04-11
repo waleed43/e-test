@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ETests.View.RegistrationPage"
+             xmlns:viewmodel="clr-namespace:ETests.ViewModel"
+             xmlns:locals="clr-namespace:ETests.CustomControls"
+             xmlns:view="clr-namespace:ETests.View"
+             Title="Registration Page"
+             BackgroundColor="#397290"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <view:CheckedToSourceConverter 
+                x:Key="CheckedToSourceConverter"
+                />
+            <view:TextColorToSourceConverter 
+                x:Key="TextColorToSourceConverter"
+                />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Icon="splash_screen.png" ></ToolbarItem>
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.BindingContext>
+        <viewmodel:ResgrationViewModel/>
+       
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <ScrollView>
+            <StackLayout Orientation="Vertical">
+            <StackLayout>
+                    <Label FontSize="30" FontFamily="Century Gothic.ttf#Century Gothic" TextColor="White" Text="Registration" HorizontalOptions="CenterAndExpand" Margin="0,40,0,10"/>
+            </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
+                   
+                    <Image Source="label.PNG" WidthRequest="70" />
+                    <Image Source="label2.PNG" WidthRequest="70" />
+                    <Image Source="label2.PNG" WidthRequest="70" />
+                   
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="7" Spacing="10">
+
+
+
+                
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <!--<locals:CustomEntery x:Name="Device_Reg" Text="{Binding Device_Registration}" 
+                           Placeholder="Device Registration"   
+                           PlaceholderColor="Gray" 
+                           FontSize="Small"
+                           HeightRequest="30"   
+                           BackgroundColor="White"
+                           TextColor="Black"/>-->
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="Name :" HorizontalOptions="Start" WidthRequest="80" TextColor="White" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand"></Label>-->
+                            <locals:CustomEntery x:Name="UName" 
+                            
+                          
+                           
+                           Text="{Binding User_Name}"
+                           
+                           FontSize="Small"
+                           HeightRequest="40"   
+                            Placeholder="Name "
+                          FontFamily="Century Gothic.ttf#Century Gothic"
+                            HorizontalOptions="FillAndExpand"
+                          
+                           TextColor="{Binding TextColorName ,Converter={StaticResource TextColorToSourceConverter}}">
+                                
+                                <locals:CustomEntery.Behaviors>
+                                    <locals:MaskedBehavior/>
+                                </locals:CustomEntery.Behaviors>
+
+
+                            </locals:CustomEntery>
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="Email :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+                            <locals:CustomEntery x:Name="UEmail" 
+                           
+                           Placeholder="Email"
+                           Text="{Binding User_Email}"
+                           FontFamily="Century Gothic.ttf#Century Gothic"
+                           PlaceholderColor="Gray" 
+                           FontSize="Small"
+                           HeightRequest="40"   
+                            Keyboard="Email" 
+                           BorderErrorColor="Red"
+                           HorizontalOptions="FillAndExpand"
+                           TextColor="{Binding TextColorUser_Email,Converter={StaticResource TextColorToSourceConverter}}">
+                                <locals:CustomEntery.Behaviors>
+                                    <locals:EmailValidationBehavior/>
+                                </locals:CustomEntery.Behaviors>
+
+                            </locals:CustomEntery>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="Phone :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+                            <locals:CustomEntery x:Name="UContact" 
+                           
+                           
+                           Text="{Binding User_Contact}"
+                           FontFamily="Century Gothic.ttf#Century Gothic"
+                           Placeholder="Contact Number"
+                           PlaceholderColor="Gray" 
+                           FontSize="Small" 
+                           HeightRequest="40"   
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"
+                           BorderErrorColor="Red"
+                           TextColor="{Binding TextColorUser_Contact,Converter={StaticResource TextColorToSourceConverter}}">
+                                <locals:CustomEntery.Behaviors>
+                                    <locals:MaskedBehavior Mask="XXXX-XXXXXXX" />
+                                </locals:CustomEntery.Behaviors>
+                            </locals:CustomEntery>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="CNIC :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+                            <locals:CustomEntery x:Name="UCNIC" 
+                           
+                               Placeholder="CNIC "
+                                Text="{Binding User_CNIC}"
+                          FontFamily="Century Gothic.ttf#Century Gothic"
+                           FontSize="Small"
+                           HeightRequest="40"   
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"
+                           BorderErrorColor="Red"
+                          TextColor="{Binding TextColorUser_CNIC,Converter={StaticResource TextColorToSourceConverter}}">
+
+                                <locals:CustomEntery.Behaviors>
+                                    <locals:MaskedBehavior Mask="XXXXX-XXXXXXX-X" />
+                                </locals:CustomEntery.Behaviors>
+                            </locals:CustomEntery>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="Institute :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+
+                            <locals:CustomEntery x:Name="UIntitue" 
+                           
+                           Placeholder="Institute "
+                                                 FontFamily="Century Gothic.ttf#Century Gothic"
+                           Text="{Binding Institute_Name}"                  
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="Small" 
+                           HeightRequest="40"   
+                          IsBorderErrorVisible="True"
+                           BorderErrorColor="Red"
+                           TextColor="{Binding TextColorInstitute_Name,Converter={StaticResource TextColorToSourceConverter}}">
+                                <locals:CustomEntery.Behaviors>
+                                    <locals:MaskedBehavior/>
+                                </locals:CustomEntery.Behaviors>
+
+                            </locals:CustomEntery>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <!--<Label Text="City :" HorizontalOptions="Start" WidthRequest="80" FontSize="Medium" FontAttributes="Bold" TextColor="White" VerticalOptions="CenterAndExpand"></Label>-->
+
+                                <locals:CustomEntery x:Name="UCity" 
+                           
+                           FontFamily="Century Gothic.ttf#Century Gothic"
+                           Text="{Binding City}"
+                          HorizontalOptions="FillAndExpand"
+                           FontSize="Small"
+                           HeightRequest="40"   
+                            Placeholder="City"
+                           BorderErrorColor="Red"
+                            
+                           TextColor="{Binding TextColorCity,Converter={StaticResource TextColorToSourceConverter}}">
+                                    <locals:CustomEntery.Behaviors>
+
+                                        <locals:CityEnteryBehavior x:Name="numberValidator"/>
+
+                                    </locals:CustomEntery.Behaviors>
+
+                                </locals:CustomEntery>
+                            </StackLayout>
+
+
+
+
+
+                        </StackLayout>
+               
+            
+            
+        </StackLayout>
+                <Button Command="{Binding SubmitCommand}" 
+                    Text="Next" TextColor="White" 
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Margin="30,0,30,20"
+                    VerticalOptions="EndAndExpand"
+                    FontFamily="Century Gothic.ttf#Century Gothic"
+                    HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#01579B" 
+                   
+                    />
+               <!--// IsEnabled="{Binding IsButtonEnabled}"-->
+            </StackLayout>
+            </ScrollView>
+            <ActivityIndicator x:Name="indi" IsRunning="{Binding IsBusy,Mode=TwoWay}"
+                               IsVisible="{Binding IsBusy}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
+                                   Color="#3700b3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
